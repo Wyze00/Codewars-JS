@@ -10,9 +10,13 @@ function removeNb (n) {
     let sum = seq.reduce((a,c) => a + c,0) - seq[start] - seq[end];
     let aXb = seq[start] * seq[end];
 
-    while(aXb != sum){
+    const res = [];
 
-        if(start == end){return []}
+    while(start != end){
+
+        if(aXb == sum){
+            res.push([seq[start],seq[end]],[seq[end],seq[start]])
+        }
 
         if(aXb < sum){
             start++;
@@ -26,11 +30,44 @@ function removeNb (n) {
 
             aXb = seq[start] * seq[end];
             sum = sum - seq[end] + seq[end+1];
-            // continue;
+            continue;
         }
     }
 
-    return [[seq[start],seq[end]],[seq[end],seq[start]]]
+    return res.sort((a,b) => a[0]-b[0]);
 }
 
-console.log(removeNb(26));
+// PaginationHelper (348)
+
+class PaginationHelper {
+    
+	constructor(collection, itemsPerPage) {
+
+        this.collection = collection;
+        this.itemsPerPage = itemsPerPage;
+	}
+
+	itemCount() {
+        return this.collection.length;
+	}
+
+	pageCount() {
+        return Math.ceil(this.collection.length / this.itemsPerPage);
+	}
+
+	pageItemCount(pageIndex) {
+        
+        const pCount = this.pageCount();
+
+        if(pageIndex > pCount - 1 || pageIndex < 0){return -1}
+        else if(pageIndex == pCount - 1){return this.collection.length % this.itemsPerPage}
+        else {return this.itemsPerPage}
+	}
+
+	pageIndex(itemIndex) {
+
+        if(itemIndex > this.collection.length-1 || itemIndex < 0){return -1}
+
+        return Math.floor(itemIndex / this.itemsPerPage);
+	}
+}
