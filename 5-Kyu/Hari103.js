@@ -71,3 +71,30 @@ class PaginationHelper {
         return Math.floor(itemIndex / this.itemsPerPage);
 	}
 }
+
+//
+
+function baseSum(array, n){
+
+    const bigN = BigInt(n);
+
+    const str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    let b10 = array
+                .reduce((a,c) => a + (c.length == 1 
+                                      ? BigInt(str.indexOf(c))*bigN**0n 
+                                      : c.split('').reverse().reduce((a,q,i) => a + BigInt(str.indexOf(q))*bigN**BigInt(i),0n)
+                                     ),0n);
+
+    let res = "";
+
+    while(b10 != 0n){
+
+        res = str[b10%bigN] + res;
+        b10 = b10/bigN;
+
+    }
+    
+    return res.length ? res : "0";
+}
+
