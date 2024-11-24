@@ -13,4 +13,3 @@ function josephus(items,k){
 
     return res;
 }
-
