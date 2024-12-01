@@ -90,3 +90,60 @@ function stat(strg) {
 
     return `Range: ${toFormat(range)} Average: ${toFormat(average)} Median: ${toFormat(median)}`
 }
+
+// longest_palindrome (363)
+
+function longestPalindrome(s){
+
+    if(s == ''){return 0}
+
+    const stack = [s[0]];
+    let longest = 1;
+
+    for(let i = 1; i<s.length; i++){
+
+        if(stack[stack.length-1] == s[i]){
+
+            let temp = 2;
+
+            for(let j = i+1, k = i-2; j<s.length, k>=0; j++ , k--){
+
+                if(stack[k] == s[j]){
+                    temp +=2;
+                } else {
+                    break;
+                }
+            }
+
+            stack.push(s[i]);
+
+            if(temp > longest){
+                longest = temp;
+            }
+
+        } else if(stack[stack.length-1] == s[i+1]){
+
+            let temp = 3;
+
+            for(let j = i+2, k = i-2; j<s.length, k>=0; j++ , k--){
+
+                if(stack[k] == s[j]){
+                    temp +=2;
+                } else {
+                    break;
+                }
+            }
+
+            stack.push(s[i]);
+
+            if(temp > longest){
+                longest = temp;
+            }
+
+        } else {
+            stack.push(s[i])
+        }         
+    }
+    
+    return longest;
+}
