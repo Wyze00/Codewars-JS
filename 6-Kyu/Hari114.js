@@ -27,4 +27,3 @@ function autocomplete(input, dictionary){
     
     return arr;
 }
-
