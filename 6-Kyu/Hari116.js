@@ -30,3 +30,29 @@ function countPerms(matrix) {
         return n * factorial(n-1);
     }
 }
+// #1 Sequences: Pure Even Digit Perfect Squares (P.E.D.P.S) (370)
+
+function evenDigitSquares(a, b) {
+
+    const result = [];
+
+    for(let i = Math.ceil(Math.sqrt(a)); i * i <= b; i++){
+
+        if(i % 2 != 0){
+            continue;
+        } else {
+
+            const num1 = String(i * i).split('');
+
+            if(num1.length == num1.filter((e) => e%2 == 0).length){
+
+                result.push(i * i);
+                
+            } else {
+                continue;
+            }
+        }
+    }
+
+    return result;
+}
