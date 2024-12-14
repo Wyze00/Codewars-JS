@@ -28,8 +28,7 @@ function sumStrings(a,b) {
         }
     }
     
-
-    for(let i = num1.length-1; i<-1; i--){
+    for(let i = num1.length-1; i>-1; i--){
 
         if(num1[i] > 9){
             const temp = num1[i].split('');
