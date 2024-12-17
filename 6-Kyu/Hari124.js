@@ -11,4 +11,20 @@ function finance(n) {
      return res;
  }
 
- 
+//Triangle number check (385)
+
+function isTriangleNumber(number) {
+  
+    if(number == 1 || number == 0 || number == 2){
+      return true;
+    }
+    
+    let space = 3;
+    for(let a = 4, b = 3; b<=number; a+=space, b+=space, space++){
+      if(number == a || number == b){
+        return true;
+      }
+    }
+    
+    return false;
+}
