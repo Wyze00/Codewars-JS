@@ -17,3 +17,17 @@ function shortestStepsToNum(num) {
 
     return ctr;
 }
+
+// Odd-heavy Array (390)
+
+function isOddHeavy(n){
+
+    const odd = n.filter((e) => Math.abs(e) % 2 == 1);
+    const even = n.filter((e) => Math.abs(e) % 2 == 0);
+
+    if(odd.length == 0){
+        return false
+    }
+
+    return odd.every((e) => even.every((g) => e > g));
+}
