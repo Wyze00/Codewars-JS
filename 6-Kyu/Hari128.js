@@ -42,5 +42,29 @@ const closestSum = (ints, num) => {
     })[0];
 }
 
+// Reverse Vowels In A String (393)
 
- 
+function reverseVowels(str) {
+    
+    str = str.split('');
+    const myReg = new RegExp(/[aiueo]/i);
+
+    for(let i = 0, j = str.length-1; i < j; i++, j--){
+
+        while(str[i].match(myReg) == undefined && i < str.length-1){
+            i++;
+        }
+
+        while(str[j].match(myReg) == undefined && j > 0){
+            j--;
+        }
+
+        if(i >= j){
+            break;
+        }
+        
+        [str[i], str[j]] = [str[j], str[i]];
+    }
+
+    return str.join('');
+}
