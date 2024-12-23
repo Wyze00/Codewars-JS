@@ -41,3 +41,22 @@ function evaluate(arr){
 
     return arr[0];
 }
+
+// Each n-th element of list (398)
+
+function each(n, xs) {
+
+    if(n == 0) return [];
+    if(n < 0){
+        n = Math.abs(n);
+        xs.reverse();
+    }
+
+    const res = [];
+
+    for(let i = n-1; i<xs.length; i+=n){
+        res.push(xs[i]);
+    }
+
+    return res
+}
