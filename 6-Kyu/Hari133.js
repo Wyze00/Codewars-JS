@@ -44,3 +44,12 @@ function palindrome(num){
     return res.length == 0 ? "No palindromes found" : [...new Set(res)];
 }
 
+// Prefill an Array (402)
+
+function prefill(n, v) {
+
+    if(isNaN(n) || n < 0 || n == Infinity || n == -Infinity ||  n === false || n === true || Math.round(n) !== n) throw new TypeError(`${n} is invalid`);
+    n = Number(n);
+    
+    return Array(n).fill(v) ;
+}
