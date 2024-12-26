@@ -12,3 +12,15 @@ function shorterestTime(n,m,speeds) {
 
     return res.sort((a,b) => a-b)[0];
 }
+
+// Simple Fun #141: Hamming Distance (404)
+
+function hammingDistance (a, b) {
+
+    const xor = (a ^ b).toString(2);
+
+    let ctr = 0;
+    for(let i = 0; i<xor.length; i++) if(xor[i] == '1') ctr++;
+
+    return ctr;
+}
