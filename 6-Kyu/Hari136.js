@@ -9,3 +9,7 @@ function calculate(num1,num2){
     
     return res;
 }
+
+// One Line : Bit Calculator
+
+calculate=(a,b)=>+`0b${a}`+ +`0b${b}`
