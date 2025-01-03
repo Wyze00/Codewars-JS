@@ -10,6 +10,6 @@ function calculate(num1,num2){
     return res;
 }
 
-// One Line : Bit Calculator
+// One Line : Bit Calculator (407)
 
 calculate=(a,b)=>+`0b${a}`+ +`0b${b}`
