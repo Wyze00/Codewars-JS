@@ -50,3 +50,9 @@ function oddOneOut(str) {
 
     return res;
 }
+
+// Anything to integer (412)
+
+function toInteger(n) {
+    return ~~n
+}
