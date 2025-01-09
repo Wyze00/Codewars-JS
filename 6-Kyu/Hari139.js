@@ -23,3 +23,30 @@ function repeatingFractions(numerator, denominator) {
 
     return res;
 }
+
+// What will be the odd one out? (411)
+
+function oddOneOut(str) {
+
+    const res = [];
+    let myMap = new Map();
+
+    for(let i = str.length-1; i>-1; i--){
+
+        if(myMap.has(str[i])){
+            myMap.set(str[i], myMap.get(str[i]) + 1);
+        } else {
+            myMap.set(str[i], 1);
+        }       
+    }
+
+    myMap = [...myMap];
+
+    for(let i = 0; i<myMap.length; i++){
+        if(myMap[i][1] % 2 == 1){
+            res.unshift(myMap[i][0]);
+        }
+    }
+
+    return res;
+}
