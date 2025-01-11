@@ -79,3 +79,27 @@ function splitAllEvenNumbers(numbers, way){
     }
 }
 
+// Simple Fun #317: Coordinate Helper (415)
+
+function coordinateHelper(cmd){
+
+    const res = [0,0];
+
+    for(let i = 0; i<cmd.length; i++){
+
+        const command = cmd[i].match(/^([ASDW])(\d+)$/);
+
+        if(command){
+            move(command[1],command[2]);
+        }
+    }
+    
+    function move(a, x){
+        if(a == 'A') res[0] -= x;
+        else if(a == 'D') res[0] += ~~x;
+        else if(a == 'W') res[1] += ~~x;
+        else if(a == 'S') res[1] -= ~~x;
+    }
+
+    return res;
+}
