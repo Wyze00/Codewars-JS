@@ -24,4 +24,8 @@ function sortString(s){
     return res.join('');
 }
 
-console.log(sortString(" MkWD{RB=//k-^ J@,xH Vfi uAz+$ kV _[ }a!}%pSBwn !kKB (b  q PQF +}wS  .kfU r wFNEs#NsR UVMdG"));
+// Sort Arrays (Ignoring Case) (417)
+
+const sortme = function( names ){
+    return names.sort((a,b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+}
