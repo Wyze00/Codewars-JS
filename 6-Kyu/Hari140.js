@@ -16,5 +16,3 @@ function parseKidList( csv ){
 function sortByNames( kids ){
     return kids.sort();
 }
-
-
