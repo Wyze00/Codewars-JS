@@ -1,8 +1,8 @@
 // * Scaling Squared Strings (438)
 
-
 function scale(strng, k, n) {
 
+    if(strng.length == 0) return "";
     const words = strng.split("\n");
     const res = [];
 
